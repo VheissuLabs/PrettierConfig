@@ -10,7 +10,13 @@ npm install --save-dev @vheissulabs/prettier-config
 
 ## Usage
 
-Add to your `package.json`:
+Run the init script to automatically add the config to your package.json:
+
+```bash
+npx vheissu-prettier-init
+```
+
+Or manually add to your `package.json`:
 
 ```json
 {

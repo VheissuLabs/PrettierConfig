@@ -1,8 +1,11 @@
 {
   "name": "@vheissulabs/prettier-config",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Shared Prettier configuration for VheissuLabs projects",
   "main": "index.js",
+  "bin": {
+    "vheissu-prettier-init": "./bin/init.js"
+  },
   "keywords": [
     "prettier",
     "config",
