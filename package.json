@@ -1,0 +1,23 @@
+{
+  "name": "@vheissulabs/prettier-config",
+  "version": "1.0.0",
+  "description": "Shared Prettier configuration for VheissuLabs projects",
+  "main": "index.js",
+  "keywords": [
+    "prettier",
+    "config",
+    "vheissulabs"
+  ],
+  "author": "Karl Miller",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VheissuLabs/PrettierConfig.git"
+  },
+  "peerDependencies": {
+    "prettier": ">=3.0.0"
+  },
+  "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^5.0.0"
+  }
+}
