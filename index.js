@@ -6,12 +6,19 @@ module.exports = {
   singleAttributePerLine: true,
   htmlWhitespaceSensitivity: 'css',
   printWidth: 100,
-  plugins: ['@trivago/prettier-plugin-sort-imports'],
+  plugins: [
+    '@trivago/prettier-plugin-sort-imports',
+    'prettier-plugin-tailwindcss'
+  ],
+  tailwindFunctions: ['clsx', 'cn', 'cva'],
   importOrder: [
     '^vue$',
+    '^@vue(.*)$',
+    '^@inertiajs(.*)$',
     '^@laravel/(.*)$',
     '^@/layouts/(.*)$',
     '^@/components/(.*)$',
+    '^@/(.*)$',
     '^[./]'
   ],
   importOrderSeparation: false,
