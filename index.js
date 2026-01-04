@@ -4,7 +4,7 @@ module.exports = {
   singleQuote: true,
   vueIndentScriptAndStyle: true,
   singleAttributePerLine: true,
-  htmlWhitespaceSensitivity: 'css',
+  htmlWhitespaceSensitivity: 'ignore',
   printWidth: 100,
   plugins: [
     '@trivago/prettier-plugin-sort-imports',
