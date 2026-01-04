@@ -4,7 +4,6 @@ const fs = require('fs')
 const path = require('path')
 
 const packageJsonPath = path.join(process.cwd(), 'package.json')
-const eslintConfigPath = path.join(process.cwd(), 'eslint.config.js')
 
 if (!fs.existsSync(packageJsonPath)) {
   console.error('❌ No package.json found in current directory')
@@ -12,6 +11,16 @@ if (!fs.existsSync(packageJsonPath)) {
 }
 
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'))
+
+// Detect if project uses ES modules
+const isESModule = packageJson.type === 'module'
+const eslintExt = isESModule ? 'cjs' : 'js'
+const eslintConfigPath = path.join(process.cwd(), `eslint.config.${eslintExt}`)
+
+// Check for existing eslint config (either .js or .cjs)
+const existingConfigs = ['eslint.config.js', 'eslint.config.cjs', 'eslint.config.mjs']
+  .map(f => path.join(process.cwd(), f))
+  .filter(f => fs.existsSync(f))
 
 // Add Prettier config
 if (packageJson.prettier) {
@@ -30,15 +39,15 @@ if (packageJson.prettier) {
 }
 
 // Add ESLint config
-if (fs.existsSync(eslintConfigPath)) {
-  console.log('⚠️  eslint.config.js already exists')
+if (existingConfigs.length > 0) {
+  console.log(`⚠️  ESLint config already exists: ${path.basename(existingConfigs[0])}`)
 } else {
   const eslintConfig = `const vheissuConfig = require('@vheissulabs/prettier-config/eslint')
 
 module.exports = [...vheissuConfig]
 `
   fs.writeFileSync(eslintConfigPath, eslintConfig)
-  console.log('✅ Created eslint.config.js')
+  console.log(`✅ Created eslint.config.${eslintExt}${isESModule ? ' (CommonJS for ES module project)' : ''}`)
 }
 
 console.log('')
