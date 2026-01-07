@@ -52,4 +52,4 @@ module.exports = [...vheissuConfig]
 
 console.log('')
 console.log('📦 Install peer dependencies:')
-console.log('   npm install --save-dev eslint eslint-plugin-vue')
+console.log('   npm install --save-dev eslint eslint-plugin-vue typescript-eslint')

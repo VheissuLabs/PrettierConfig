@@ -8,7 +8,7 @@ module.exports = {
   printWidth: 100,
   plugins: [
     '@trivago/prettier-plugin-sort-imports',
-    'prettier-plugin-tailwindcss'
+    'prettier-plugin-tailwindcss',
   ],
   tailwindFunctions: ['clsx', 'cn', 'cva'],
   importOrder: [
@@ -16,10 +16,11 @@ module.exports = {
     '^@vue(.*)$',
     '^@inertiajs(.*)$',
     '^@laravel/(.*)$',
+    '<THIRD_PARTY_MODULES>',
     '^@/layouts/(.*)$',
     '^@/components/(.*)$',
     '^@/(.*)$',
-    '^[./]'
+    '^[./]',
   ],
   importOrderSeparation: false,
   importOrderSortSpecifiers: true,
@@ -27,8 +28,8 @@ module.exports = {
     {
       files: '**/*.yml',
       options: {
-        tabWidth: 2
-      }
-    }
-  ]
+        tabWidth: 2,
+      },
+    },
+  ],
 }
